@@ -31,7 +31,9 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={`${geistSans.variable} ${geistMono.variable} ${pressStart2P.variable} font-press-start antialiased`}>
-        {children}
+        <main>
+          {children}
+        </main>
       </body>
     </html>
   );
