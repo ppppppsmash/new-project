@@ -12,6 +12,10 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      animation: {
+        'blink': 'blink 1s step-start infinite',
+        'pulse-neon': 'pulse-neon 2s infinite',
+      },
     },
   },
   plugins: [],

@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,5 +17,48 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Press Start 2P', system-ui, sans-serif;
+}
+
+@layer components {
+  .neon-button {
+    @apply relative text-cyan-500 border-2 border-cyan-500 rounded-sm
+           transition-all duration-300
+           hover:text-black hover:bg-cyan-500
+           focus:outline-none;
+    text-shadow: 0 0 5px theme('colors.cyan.500');
+    box-shadow: 0 0 5px theme('colors.cyan.500'),
+                inset 0 0 5px theme('colors.cyan.500');
+  }
+
+  .neon-button:hover {
+    text-shadow: none;
+    box-shadow: 0 0 20px theme('colors.cyan.500');
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes pulse-neon {
+  0%, 100% {
+    text-shadow: 0 0 10px theme('colors.yellow.400'),
+                 0 0 20px theme('colors.red.500'),
+                 0 0 30px theme('colors.pink.500');
+  }
+  50% {
+    text-shadow: 0 0 20px theme('colors.yellow.400'),
+                 0 0 30px theme('colors.red.500'),
+                 0 0 40px theme('colors.pink.500');
+  }
+}
+
+.animate-blink {
+  animation: blink 1s step-start infinite;
+}
+
+.animate-pulse-neon {
+  animation: pulse-neon 2s infinite;
 }
